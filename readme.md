@@ -37,7 +37,7 @@ pip install torch torchvision albumentations tqdm
 
 ## 🛠️ Usage
 
-### 1. Style Analysis (Optional)
+### 1. Style Analysis (Optional But you must need to put your images folder before running)
 If you have a dataset of real plot images, you can analyze them to extract "style priors" (e.g., color palettes, grid styles). This helps the synthetic generator create more realistic images.
 
 ```bash
@@ -55,17 +55,22 @@ Generate a large dataset of error bar plots with ground truth labels. This data 
 cd synthetic_image_generation_pipeline
 
 # Generate 3000 images using default settings
-python3 synth_pipeline.py --count 3000
+python3 synth_pipeline.py \
+    --count 3000 \
+    --learn-from-labels \
+    --use-existing-sizes \
+    --engine auto \
+    --engine-weights mpl:0.5,seaborn:0.2,pandas:0.1,plotly:0.1,bokeh:0.1
 
 # Generate images using learned style priors from step 1
 python3 synth_pipeline.py \
   --count 3000 \
   --visual-stats ./visual_stats.json
-```
 Output will be saved to `synthetic_data/` by default.
 
 ### 3. Training & Detection
 The detection pipeline is implemented in Jupyter Notebooks.
+** Gemini api based detection Can be run on just adding your api key in the notebook **
 
 **Training:**
 1. Open `error_bar_detection/Training pipeline yolo.ipynb`.
