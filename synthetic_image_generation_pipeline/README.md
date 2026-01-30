@@ -22,6 +22,8 @@ python3 synth_pipeline.py \
     --engine auto \
     --engine-weights mpl:0.5,seaborn:0.2,pandas:0.1,plotly:0.1,bokeh:0.1
 By default, outputs go to the `synthetic_data/` subfolder:
+
+
 ** If you have existing images for learning **
 - images: `synthetic_data/images/`
 - labels: `synthetic_data/labels/`
