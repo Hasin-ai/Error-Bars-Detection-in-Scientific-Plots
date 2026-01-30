@@ -1,0 +1,10 @@
+numpy
+matplotlib
+Pillow
+seaborn
+pandas
+plotly
+bokeh
+# Optional image export backends
+kaleido
+selenium
